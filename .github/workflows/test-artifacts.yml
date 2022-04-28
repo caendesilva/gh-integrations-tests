@@ -38,6 +38,6 @@ jobs:
 
     steps:
       - name: Download coverage report artifact
-    uses: actions/download-artifact@v3
-    with:
-      name: coverage-report
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-report
