@@ -42,3 +42,10 @@ jobs:
 
       - name: Run phpDocumentor
         run: php phpDocumentor.phar -d src -t api-docs
+
+      - name: Upload the documentation as an artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: 'api-docs'
+          path: 'api-docs'
+        
