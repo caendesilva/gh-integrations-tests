@@ -25,6 +25,9 @@ jobs:
       - name: Copy archive to root
         run: cp -r ~/tmp/caendesilva-hyde-monorepo-*/* .
 
+      - name: Verify
+        run: ls
+
       
         
       
