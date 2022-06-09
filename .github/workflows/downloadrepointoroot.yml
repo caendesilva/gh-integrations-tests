@@ -17,7 +17,7 @@ jobs:
         run: mkdir ~/tmp
 
       - name: Download Hyde/Hyde 
-        run: cd ~/tmp && wget https://github.com/caendesilva/hyde-monorepo/zipball/${{ github.sha }} -O hyde.zip
+        run: cd ~/tmp && wget https://github.com/caendesilva/hyde-monorepo/zipball/master -O hyde.zip
 
       - name: Unzip archive
         run: cd ~/tmp && unzip hyde.zip
@@ -25,7 +25,6 @@ jobs:
       - name: Copy archive to root
         run: cp -r ~/tmp/caendesilva-hyde-monorepo-*/* .
 
-      - name: Verify
-        run: ls
+      
         
       
