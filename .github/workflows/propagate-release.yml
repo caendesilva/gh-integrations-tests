@@ -1,13 +1,8 @@
 name: Propagate Release
 
 on:
-  # release:
-    # types: [published] # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release
-  push:
-    branches:
-      - master
-
-  workflow_dispatch:
+  release:
+    types: [published] # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release
 
 jobs:
   create-hyde-release-draft: # https://docs.github.com/en/rest/releases/releases#create-a-release
@@ -19,5 +14,5 @@ jobs:
           --url https://api.github.com/repos/caendesilva/gh-integrations-tests-b/releases \
           --header 'Authorization: token ${{ secrets.PAT }}' \
           --header 'content-type: application/json' \
-          --data '{"tag_name":"v1.0.0","target_commitish":"master","name":"v1.0.0","body":"Description of the release","draft":false,"prerelease":false,"generate_release_notes":false}'
+          --data '{"tag_name":"${{ release.tag_name }}","target_commitish":"master","name":"${{ release.tag_name }}","body":"Description of the release","draft":true,"prerelease":false,"generate_release_notes":false}'
           --fail
